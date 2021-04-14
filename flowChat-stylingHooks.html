@@ -1,0 +1,147 @@
+<html>
+    <head>
+        <title>GS0 Flow in Embedded Service Chat</title>
+    </head>
+    <body>
+        <p>This is the body.</p>
+    </body>
+    <style type='text/css'>
+        .embeddedServiceHelpButton .helpButton .uiButton {
+            background-color: #005290;
+            font-family: "Arial", sans-serif;
+        }
+        .embeddedServiceHelpButton .helpButton .uiButton:focus {
+            outline: 1px solid #005290;
+        }
+
+        :root { 
+            --sds-c-card-text-color: blue;
+            --sds-c-card-footer-color-border: orange;
+            --sds-c-card-color-background: rgb(120, 185, 120);
+            --sds-c-card-color-border: #5e5858; 
+            --sds-c-card-radius-border: 0.5rem;
+            --sds-c-card-sizing-border: 4px;
+            --sds-c-card-text-color: white;
+            --sds-c-heading-font-size: 36px;
+            --sds-c-heading-font-weight: 500;
+        
+            --sds-c-button-brand-color-background: #BB00FF;
+            --sds-c-button-brand-color-background-hover: #8700B8;
+            --sds-c-button-brand-color-border: #BB00FF;
+            --sds-c-button-brand-color-border-hover: #8700B8;
+            --sds-c-button-inverse-color-background: rgb(120, 185, 120);
+            --sds-c-button-inverse-color-background-hover:rgb(120, 185, 120);
+            --sds-c-button-inverse-color-border: white;
+            --sds-c-button-inverse-color-border-hover: white;
+            --sds-c-button-inverse-text-color: #BB00FF;
+            --sds-c-button-sizing-border: 3px;
+            --sds-c-button-radius-border: 1rem;
+        
+            --sds-c-input-text-color: #BB00FF;
+            --sds-c-input-text-color-focus: #BB00FF;
+            --sds-c-input-color-border: #BB00FF;
+            --sds-c-input-color-border-focus: #000000;
+            --sds-c-input-radius-border: .5rem;
+            --sds-c-input-color-background: rgb(120, 185, 120);
+        
+            --sds-c-textarea-color-border: #BB00FF;
+            --sds-c-textarea-color-border-focus: #BB00FF;
+            --sds-c-textarea-radius-border: 0.5rem;
+            --sds-c-textarea-sizing-min-height: 3rem;
+            --sds-c-textarea-text-color: #BB00FF;
+            --sds-c-textarea-text-color-focus: #BB00FF;
+            --sds-c-textarea-color-background: rgb(120, 185, 120);
+        
+            --sds-c-checkbox-color-border: #BB00FF;
+            --sds-c-checkbox-color-background: rgb(120, 185, 120);
+            --sds-c-checkbox-color-border-checked: #000000;
+            --sds-c-checkbox-color-background-checked: #BB00FF;
+            --sds-c-checkbox-mark-color-foreground: #FFFFFF;
+            --sds-c-checkbox-color-border-focus: #000000;
+            --sds-c-checkbox-radius-border: 0.25rem;
+        
+            --sds-c-checkbox-toggle-color-border: #BB00FF;
+            --sds-c-checkbox-toggle-color-background: rgb(120,185,120);
+            --sds-c-checkbox-toggle-color-background-hover: rgb(120,185,120);
+            --sds-c-checkbox-toggle-switch-color-background: orange;
+            --sds-c-checkbox-toggle-color-background-focus: rgb(120,185,120);
+            --sds-c-checkbox-toggle-color-border-focus: #000000;
+            --sds-c-checkbox-toggle-color-border-checked: #000000;
+            --sds-c-checkbox-toggle-color-background-checked: #BB00FF;
+            --sds-c-checkbox-toggle-color-background-checked-hover: #BB00FF;
+            --sds-c-checkbox-toggle-switch-color-background-checked: yellow;
+            --sds-c-checkbox-toggle-mark-color-foreground: #FFFFFF;
+            --sds-c-checkbox-toggle-color-background-checked-focus: #BB00FF;
+            --sds-c-checkbox-toggle-radius-border: 10rem;
+        
+            --sds-c-radio-color-border: #BB00FF;
+            --sds-c-radio-color-background: rgb(120, 185, 120);
+            --sds-c-radio-color-border-checked: #000000;
+            --sds-c-radio-color-background-checked: #BB00FF;
+            --sds-c-radio-mark-color-foreground: #FFFFFF;
+            --sds-c-radio-color-border-focus: #000000;
+        
+            --sds-c-select-color-border: #BB00FF;
+            --sds-c-select-color-background: rgb(120, 185, 120);
+            --sds-c-select-color-border-focus: #BB00FF;
+            --sds-c-select-color-background-focus: #5e5858;
+            --sds-c-select-radius-border: .5rem;
+            --sds-c-select-text-color: #BB00FF;
+            --sds-c-select-text-color-focus: #BB00FF;
+        
+            --sds-c-slider-thumb-color-foreground: #BB00FF;
+            --sds-c-slider-thumb-color-foreground-hover: #BB00FF;
+            --sds-c-slider-track-color-background: orange;
+            --sds-c-slider-thumb-color-foreground-focus: #BB00FF;
+            --sds-c-slider-thumb-color-foreground-active: #BB00FF;
+            --sds-c-slider-thumb-radius-border: 25%;
+            --sds-c-slider-track-radius-border: 0.5rem;
+        
+            --sds-c-tooltip-color-background: white;
+            --sds-c-tooltip-font-size: 1rem;
+            --sds-c-tooltip-sizing-max-width: 15rem;
+            --sds-c-tooltip-text-color: #BB00FF;
+        }
+    </style>
+    
+    <script type='text/javascript' src='https://service.force.com/embeddedservice/5.0/esw.min.js'></script>
+    <script type='text/javascript'>
+        var initESW = function(gslbBaseURL) {
+            embedded_svc.settings.displayHelpButton = true; //Or false
+            embedded_svc.settings.language = ''; //For example, enter 'en' or 'en-US'
+    
+            //embedded_svc.settings.defaultMinimizedText = '...'; //(Defaults to Chat with an Expert)
+            //embedded_svc.settings.disabledMinimizedText = '...'; //(Defaults to Agent Offline)
+    
+            //embedded_svc.settings.loadingText = ''; //(Defaults to Loading)
+            //embedded_svc.settings.storageDomain = 'yourdomain.com'; //(Sets the domain for your deployment so that visitors can navigate subdomains during a chat session)
+    
+            // Settings for Flows
+    
+            embedded_svc.settings.enabledFeatures = ['Flows'];
+            embedded_svc.settings.entryFeature = 'Flows';
+    
+            embedded_svc.init(
+                'https://flowdf19-dev-ed.my.salesforce.com',
+                'https://flowdf19-developer-edition.gus.force.com/employees',
+                gslbBaseURL,
+                '00DB0000000YGoR',
+                'Flow_Deployment',
+                {
+                    
+                }
+            );
+        };
+    
+        if (!window.embedded_svc) {
+            var s = document.createElement('script');
+            s.setAttribute('src', 'https://flowdf19-dev-ed.my.salesforce.com/embeddedservice/5.0/esw.min.js');
+            s.onload = function() {
+                initESW(null);
+            };
+            document.body.appendChild(s);
+        } else {
+            initESW('https://service.force.com');
+        }
+    </script>
+</html>
